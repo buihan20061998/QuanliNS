@@ -1,0 +1,57 @@
+﻿@model QuanliNS.Models.Luong
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Luong</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Thang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tamung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tamung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thuong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tienluong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tienluong)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

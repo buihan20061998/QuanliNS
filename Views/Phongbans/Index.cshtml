@@ -1,0 +1,55 @@
+﻿@model IEnumerable<QuanliNS.Models.Phongban>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Danh sách phòng ban </h2>
+@if (Convert.ToInt32(Session["RoleID"]) == 1)
+{
+    <p>
+        @Html.ActionLink("Tạo mới", "Create")
+    </p>
+}
+    <table class="table">
+        <tr>
+            <th>
+                Tên PB
+            </th>
+            <th>
+                Địa Điểm
+            </th>
+            <th>
+                Số Điện Thoại
+            </th>
+            @if (Convert.ToInt32(Session["RoleID"]) == 1)
+            {
+                <th>Chức năng</th>
+            }
+            </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenPB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaDiem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoDT)
+        </td>
+        @if (Convert.ToInt32(Session["RoleID"]) == 1)
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaPB }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaPB }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaPB })
+            </td>
+        }
+    </tr>
+        }
+
+    </table>

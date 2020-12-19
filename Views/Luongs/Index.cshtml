@@ -1,0 +1,61 @@
+﻿@model IEnumerable<QuanliNS.Models.Luong>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách lương </h2>
+@if (Convert.ToInt32(Session["RoleID"]) == 1)
+{
+    <p>
+        @Html.ActionLink("Tạo mới", "Create")
+    </p>
+}
+    <table class="table">
+        <tr>
+            <th>
+                Tháng
+            </th>
+            <th>
+                Ngày
+            </th>
+            <th>
+                Thưởng
+            </th>
+            <th>
+                Tiền lương
+            </th>
+            @if (Convert.ToInt32(Session["RoleID"]) == 1)
+            {
+                <th>Chức năng</th>
+            }
+            </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Thang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tamung)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Thuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tienluong)
+        </td>
+        @if (Convert.ToInt32(Session["RoleID"]) == 1)
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaNV }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaNV }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaNV })
+            </td>
+        }
+        </tr>
+        }
+
+    </table>

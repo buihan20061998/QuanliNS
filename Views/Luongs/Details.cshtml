@@ -1,0 +1,51 @@
+﻿@model QuanliNS.Models.Luong
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Luong</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Thang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tamung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tamung)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thuong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tienluong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tienluong)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaNV }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
